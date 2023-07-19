@@ -1,10 +1,10 @@
 import css from './Stat.module.css';
 import PropTypes from 'prop-types';
 
-const randomRgbColor = () => {
-  let r = Math.floor(Math.random() * 256); // Random between 0-255
-  let g = Math.floor(Math.random() * 256); // Random between 0-255
-  let b = Math.floor(Math.random() * 256); // Random between 0-255
+const randomRgbaColor = () => {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
   return 'rgb(' + r + ',' + g + ',' + b + ', 0.4)';
 };
 
@@ -20,7 +20,7 @@ const Stat = ({ data, title }) => {
           <li
             className={css.statItem}
             key={item.id}
-            style={{ background: randomRgbColor() }}
+            style={{ background: randomRgbaColor() }}
           >
             <span className="label">{item.label}</span>
             <span className="percentage">{item.percentage}%</span>
@@ -40,4 +40,5 @@ Stat.propTypes = {
     })
   ),
 };
+
 export default Stat;

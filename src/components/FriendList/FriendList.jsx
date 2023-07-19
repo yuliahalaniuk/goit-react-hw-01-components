@@ -6,7 +6,7 @@ const FriendList = ({ friends }) => {
   return (
     <ul className={css.friendList}>
       {friends.map(({ avatar, name, isOnline, id }) => (
-        <Friend avatar={avatar} name={name} isOnline={isOnline} id={id} />
+        <Friend avatar={avatar} name={name} isOnline={isOnline} key={id} />
       ))}
     </ul>
   );
@@ -14,11 +14,11 @@ const FriendList = ({ friends }) => {
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
-      key: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
     })
   ),
 };
