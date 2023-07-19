@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import '../index.css';
 
 import user from './user.json';
