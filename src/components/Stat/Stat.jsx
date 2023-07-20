@@ -11,19 +11,20 @@ const randomRgbaColor = () => {
 const Stat = ({ data, title }) => {
   return (
     <section className={css.statSection}>
-      <div className={css.titleWrap}>
-        <h2 className={css.title}>{title}</h2>
-      </div>
-
+      {title && (
+        <div className={css.titleWrap}>
+          <h2 className={css.title}>{title}</h2>
+        </div>
+      )}
       <ul className={css.statList}>
-        {data.map(item => (
+        {data.map(({ id, label, percentage }) => (
           <li
             className={css.statItem}
-            key={item.id}
+            key={id}
             style={{ background: randomRgbaColor() }}
           >
-            <span className="label">{item.label}</span>
-            <span className="percentage">{item.percentage}%</span>
+            <span className="label">{label}</span>
+            <span className="percentage">{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -33,12 +34,12 @@ const Stat = ({ data, title }) => {
 
 Stat.propTypes = {
   data: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    })
-  ),
+    }).isRequired
+  ).isRequired,
 };
 
 export default Stat;

@@ -1,9 +1,9 @@
 import '../index.css';
 
-import user from './user.json';
-import userData from './data.json';
-import friends from './friends.json';
-import trans from './transactions.json';
+import user from './data/user.json';
+import userData from './data/data.json';
+import friends from './data/friends.json';
+import trans from './data/transactions.json';
 
 import Profile from './Profile';
 import Stat from './Stat';
